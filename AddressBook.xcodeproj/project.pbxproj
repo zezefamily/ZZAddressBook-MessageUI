@@ -14,6 +14,11 @@
 		E4C91DBC1B3CF3B700E2801B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C91DBB1B3CF3B700E2801B /* Images.xcassets */; };
 		E4C91DBF1B3CF3B700E2801B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4C91DBD1B3CF3B700E2801B /* LaunchScreen.xib */; };
 		E4C91DCB1B3CF3B700E2801B /* AddressBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C91DCA1B3CF3B700E2801B /* AddressBookTests.m */; };
+		E4C91DD51B3CF3F900E2801B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C91DD41B3CF3F900E2801B /* AddressBook.framework */; };
+		E4C91DD71B3CF3FF00E2801B /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C91DD61B3CF3FF00E2801B /* AddressBookUI.framework */; };
+		E4C91DDB1B3CF62900E2801B /* ZZAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C91DDA1B3CF62900E2801B /* ZZAddressBook.m */; };
+		E4C91DDE1B3D229600E2801B /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C91DDD1B3D229600E2801B /* PersonModel.m */; };
+		E4C91DE01B3D465000E2801B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C91DDF1B3D465000E2801B /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,13 @@
 		E4C91DC41B3CF3B700E2801B /* AddressBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AddressBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C91DC91B3CF3B700E2801B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4C91DCA1B3CF3B700E2801B /* AddressBookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBookTests.m; sourceTree = "<group>"; };
+		E4C91DD41B3CF3F900E2801B /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		E4C91DD61B3CF3FF00E2801B /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		E4C91DD91B3CF62900E2801B /* ZZAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAddressBook.h; sourceTree = "<group>"; };
+		E4C91DDA1B3CF62900E2801B /* ZZAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZAddressBook.m; sourceTree = "<group>"; };
+		E4C91DDC1B3D229600E2801B /* PersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonModel.h; sourceTree = "<group>"; };
+		E4C91DDD1B3D229600E2801B /* PersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonModel.m; sourceTree = "<group>"; };
+		E4C91DDF1B3D465000E2801B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4C91DE01B3D465000E2801B /* MessageUI.framework in Frameworks */,
+				E4C91DD71B3CF3FF00E2801B /* AddressBookUI.framework in Frameworks */,
+				E4C91DD51B3CF3F900E2801B /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +78,9 @@
 		E4C91DA21B3CF3B700E2801B = {
 			isa = PBXGroup;
 			children = (
+				E4C91DDF1B3D465000E2801B /* MessageUI.framework */,
+				E4C91DD61B3CF3FF00E2801B /* AddressBookUI.framework */,
+				E4C91DD41B3CF3F900E2801B /* AddressBook.framework */,
 				E4C91DAD1B3CF3B700E2801B /* AddressBook */,
 				E4C91DC71B3CF3B700E2801B /* AddressBookTests */,
 				E4C91DAC1B3CF3B700E2801B /* Products */,
@@ -81,6 +99,7 @@
 		E4C91DAD1B3CF3B700E2801B /* AddressBook */ = {
 			isa = PBXGroup;
 			children = (
+				E4C91DD81B3CF48300E2801B /* Class */,
 				E4C91DB21B3CF3B700E2801B /* AppDelegate.h */,
 				E4C91DB31B3CF3B700E2801B /* AppDelegate.m */,
 				E4C91DB51B3CF3B700E2801B /* ViewController.h */,
@@ -117,6 +136,17 @@
 				E4C91DC91B3CF3B700E2801B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4C91DD81B3CF48300E2801B /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				E4C91DD91B3CF62900E2801B /* ZZAddressBook.h */,
+				E4C91DDA1B3CF62900E2801B /* ZZAddressBook.m */,
+				E4C91DDC1B3D229600E2801B /* PersonModel.h */,
+				E4C91DDD1B3D229600E2801B /* PersonModel.m */,
+			);
+			name = Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +249,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4C91DDE1B3D229600E2801B /* PersonModel.m in Sources */,
 				E4C91DB71B3CF3B700E2801B /* ViewController.m in Sources */,
 				E4C91DB41B3CF3B700E2801B /* AppDelegate.m in Sources */,
 				E4C91DB11B3CF3B700E2801B /* main.m in Sources */,
+				E4C91DDB1B3CF62900E2801B /* ZZAddressBook.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

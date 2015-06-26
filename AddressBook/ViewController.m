@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
-
-@interface ViewController ()
+#import "ZZAddressBook.h"
+#import "PersonModel.h"
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
+    ZZAddressBook *book;
+}
+@property (weak, nonatomic) IBOutlet UITableView *addressTable;
 
 @end
 
@@ -16,7 +21,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    book = [[ZZAddressBook alloc]init];
+    book.getPersons = ^(NSMutableArray *persons){
+        NSLog(@"persons == %@",persons);
+        [self.addressTable reloadData];
+    };
+    
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return book.perArr.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellid = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
+    if(!cell){
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
+    }
+    PersonModel *model = book.perArr[indexPath.row];
+    if(model.firstName != nil){
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"%@%@  %@",model.lastName,model.firstName,model.phoneNumber];
+    }else {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@  %@",model.lastName,model.phoneNumber];
+    }
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PersonModel *model = book.perArr[indexPath.row];
+    [book sendMessageToBookFriendWithVC:self withModel:model];
+    book.result = ^(enum MessageSendType result){
+        if(result == 0){
+            NSLog(@"用户取消发送");
+        }else if (result == 1){
+            NSLog(@"用户发送失败");
+        }else if(result == 2){
+            NSLog(@"用户消息发送成功");
+        }
+    };
 }
 
 - (void)didReceiveMemoryWarning {
